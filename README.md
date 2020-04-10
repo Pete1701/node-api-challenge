@@ -40,11 +40,20 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+- Routing
+- Middleware
+
 - [ ] Describe Middleware?
+
+- Middleware is a series of functions that get executed in the order they are introduced into the server code. They either provide a response (and this ends the API req-res cycle) or they proceed to the next step (possibly middleware function too), or provide an error if there is one.
 
 - [ ] Describe a Resource?
 
+- A resource is the "material" of our API, the data that we actually want to keep, manipulate, send as response etc in our API. It can be products, users, clients, posts, or any content that we need a way to keep in our API.
+
 - [ ] What can the API return to help clients know if a request was successful?
+
+- The API returns a success message together with a code in the range of 200-299. The most common success code is 200.
 
 - [ ] How can we partition our application into sub-applications?
 
