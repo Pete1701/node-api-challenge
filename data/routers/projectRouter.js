@@ -14,6 +14,16 @@ router.get('/', (req, res) => {
       res.status(500).json({ message: 'Error finding projects' });
     });
 });
+
+router.get('/:id', (req, res) => {
+  Project.get(req.params.id)
+  .then((project) => {
+    res.status(200).json(project);
+  })
+  .catch((err) => {
+    res.status(500).json({ message: 'Error finding projects' });
+  });
+});
   
 router.post('/', (req, res) => {    
     Project.insert(req.body)
@@ -26,16 +36,8 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     Project.update(req.params.id, req.body)
       .then((project) => {
-        if (project) {
-          Project.get(req.params.id)
-            .then((project) => {
+        if (project) {          
               res.status(200).json(project);
-            })
-            .catch((err) => {
-              res
-                .status(500)
-                .json({ errorMessage: "Error reading the updated project" });
-            });
         } else {
           res.status(404).json({ message: "The project with the specified ID does not exist." });
         }
